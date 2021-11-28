@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.conghucai.blog.mapper.CategoryMapper">
+  <resultMap id="BaseResultMap" type="com.gitee.conghucai.blog.model.Category">
+    <id column="name" jdbcType="VARCHAR" property="name" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="label" jdbcType="VARCHAR" property="label" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="date" jdbcType="CHAR" property="date" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+    <result column="menu" jdbcType="INTEGER" property="menu" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    name, path, label, icon, date, avatar, intro, count, menu
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_category
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_category
+    where name = #{name,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gitee.conghucai.blog.model.Category">
+    insert into t_category (name, path, label, 
+      icon, date, avatar, intro, 
+      count, menu)
+    values (#{name,jdbcType=VARCHAR}, #{path,jdbcType=VARCHAR}, #{label,jdbcType=VARCHAR}, 
+      #{icon,jdbcType=VARCHAR}, #{date,jdbcType=CHAR}, #{avatar,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}, 
+      #{count,jdbcType=INTEGER}, #{menu,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gitee.conghucai.blog.model.Category">
+    insert into t_category
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        name,
+      </if>
+      <if test="path != null">
+        path,
+      </if>
+      <if test="label != null">
+        label,
+      </if>
+      <if test="icon != null">
+        icon,
+      </if>
+      <if test="date != null">
+        date,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="intro != null">
+        intro,
+      </if>
+      <if test="count != null">
+        count,
+      </if>
+      <if test="menu != null">
+        menu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="path != null">
+        #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null">
+        #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        #{date,jdbcType=CHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        #{count,jdbcType=INTEGER},
+      </if>
+      <if test="menu != null">
+        #{menu,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gitee.conghucai.blog.model.Category">
+    update t_category
+    <set>
+      <if test="path != null">
+        path = #{path,jdbcType=VARCHAR},
+      </if>
+      <if test="label != null">
+        label = #{label,jdbcType=VARCHAR},
+      </if>
+      <if test="icon != null">
+        icon = #{icon,jdbcType=VARCHAR},
+      </if>
+      <if test="date != null">
+        date = #{date,jdbcType=CHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        intro = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="count != null">
+        count = #{count,jdbcType=INTEGER},
+      </if>
+      <if test="menu != null">
+        menu = #{menu,jdbcType=INTEGER},
+      </if>
+    </set>
+    where name = #{name,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gitee.conghucai.blog.model.Category">
+    update t_category
+    set path = #{path,jdbcType=VARCHAR},
+      label = #{label,jdbcType=VARCHAR},
+      icon = #{icon,jdbcType=VARCHAR},
+      date = #{date,jdbcType=CHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      intro = #{intro,jdbcType=VARCHAR},
+      count = #{count,jdbcType=INTEGER},
+      menu = #{menu,jdbcType=INTEGER}
+    where name = #{name,jdbcType=VARCHAR}
+  </update>
+
+
+  <resultMap id="categoryListVoMap" type="com.gitee.conghucai.blog.vo.CategoryListVo">
+    <id column="name" jdbcType="VARCHAR" property="name" />
+    <result column="path" jdbcType="VARCHAR" property="path" />
+    <result column="label" jdbcType="VARCHAR" property="label" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+  </resultMap>
+  <select id="selectByMenuId" parameterType="java.lang.Integer" resultMap="categoryListVoMap">
+    select
+    name, path, label, icon
+    from t_category
+    where menu = #{menuId}
+    order by sort
+  </select>
+</mapper>

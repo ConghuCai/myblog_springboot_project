@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.conghucai.blog.mapper.OwnerInfoMapper">
+  <resultMap id="BaseResultMap" type="com.gitee.conghucai.blog.model.OwnerInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="access" jdbcType="VARCHAR" property="access" />
+    <result column="introduction" jdbcType="VARCHAR" property="introduction" />
+    <result column="location" jdbcType="VARCHAR" property="location" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, name, access, introduction, location, avatar
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    name, access, introduction, location, avatar
+    from t_owner_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_owner_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gitee.conghucai.blog.model.OwnerInfo">
+    insert into t_owner_info (id, name, access, 
+      introduction, location, avatar
+      )
+    values (#{id,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{access,jdbcType=VARCHAR}, 
+      #{introduction,jdbcType=VARCHAR}, #{location,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gitee.conghucai.blog.model.OwnerInfo">
+    insert into t_owner_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="access != null">
+        access,
+      </if>
+      <if test="introduction != null">
+        introduction,
+      </if>
+      <if test="location != null">
+        location,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="access != null">
+        #{access,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null">
+        #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gitee.conghucai.blog.model.OwnerInfo">
+    update t_owner_info
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="access != null">
+        access = #{access,jdbcType=VARCHAR},
+      </if>
+      <if test="introduction != null">
+        introduction = #{introduction,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gitee.conghucai.blog.model.OwnerInfo">
+    update t_owner_info
+    set name = #{name,jdbcType=VARCHAR},
+      access = #{access,jdbcType=VARCHAR},
+      introduction = #{introduction,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

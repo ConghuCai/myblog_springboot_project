@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.conghucai.blog.mapper.MessageMapper">
+  <resultMap id="BaseResultMap" type="com.gitee.conghucai.blog.model.Message">
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="user" jdbcType="VARCHAR" property="user" />
+    <result column="time" jdbcType="CHAR" property="time" />
+    <result column="message" jdbcType="VARCHAR" property="message" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user, time, message
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_message
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_message
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gitee.conghucai.blog.model.Message">
+    insert into t_message (id, user, time, message
+      )
+    values (#{id,jdbcType=CHAR}, #{user,jdbcType=VARCHAR}, #{time,jdbcType=CHAR}, #{message,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gitee.conghucai.blog.model.Message">
+    insert into t_message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="user != null">
+        user,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="message != null">
+        message,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="user != null">
+        #{user,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=CHAR},
+      </if>
+      <if test="message != null">
+        #{message,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gitee.conghucai.blog.model.Message">
+    update t_message
+    <set>
+      <if test="user != null">
+        user = #{user,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=CHAR},
+      </if>
+      <if test="message != null">
+        message = #{message,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gitee.conghucai.blog.model.Message">
+    update t_message
+    set user = #{user,jdbcType=VARCHAR},
+      time = #{time,jdbcType=CHAR},
+      message = #{message,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+
+  <select id="getMessageDetail" resultType="com.gitee.conghucai.blog.vo.MessageDetailVo">
+    select m.user as userName, m.message as message, m.time as time, u.avatar_url as avatar
+    from t_message m join t_user u on m.user = u.login
+    order by m.time desc
+    limit 0,10
+  </select>
+</mapper>
