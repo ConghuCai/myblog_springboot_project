@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.conghucai.blog.mapper.RefArticleTagMapper">
+  <resultMap id="BaseResultMap" type="com.gitee.conghucai.blog.model.RefArticleTag">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="article_id" jdbcType="CHAR" property="articleId" />
+    <result column="tag" jdbcType="VARCHAR" property="tag" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, article_id, tag
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_ref_article_tag
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from t_ref_article_tag
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.gitee.conghucai.blog.model.RefArticleTag">
+    insert into t_ref_article_tag (id, article_id, tag
+      )
+    values (#{id,jdbcType=INTEGER}, #{articleId,jdbcType=CHAR}, #{tag,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.gitee.conghucai.blog.model.RefArticleTag">
+    insert into t_ref_article_tag
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="tag != null">
+        tag,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="articleId != null">
+        #{articleId,jdbcType=CHAR},
+      </if>
+      <if test="tag != null">
+        #{tag,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gitee.conghucai.blog.model.RefArticleTag">
+    update t_ref_article_tag
+    <set>
+      <if test="articleId != null">
+        article_id = #{articleId,jdbcType=CHAR},
+      </if>
+      <if test="tag != null">
+        tag = #{tag,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gitee.conghucai.blog.model.RefArticleTag">
+    update t_ref_article_tag
+    set article_id = #{articleId,jdbcType=CHAR},
+      tag = #{tag,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <select id="selectByArticleID" parameterType="java.lang.String" resultType="java.lang.String">
+    select
+    tag
+    from t_ref_article_tag
+    where article_id = #{articleID}
+  </select>
+</mapper>

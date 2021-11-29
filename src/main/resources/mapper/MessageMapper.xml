@@ -81,7 +81,7 @@
   </update>
 
   <select id="getMessageDetail" resultType="com.gitee.conghucai.blog.vo.MessageDetailVo">
-    select m.user as userName, m.message as message, m.time as time, u.avatar_url as avatar
+    select u.name as userName, m.message as message, m.time as time, u.avatar_url as avatar
     from t_message m join t_user u on m.user = u.login
     order by m.time desc
     limit 0,10

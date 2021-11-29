@@ -1,5 +1,6 @@
 package com.gitee.conghucai.blog.service.impl;
 
+import com.gitee.conghucai.blog.config.BlogParamConfig;
 import com.gitee.conghucai.blog.mapper.*;
 import com.gitee.conghucai.blog.model.*;
 import com.gitee.conghucai.blog.service.HomeService;
@@ -33,6 +34,12 @@ public class HomeServiceImpl implements HomeService {
     TagMapper tagMapper;
     @Resource
     LinkMapper linkMapper;
+    @Resource
+    ArticleMapper articleMapper;
+
+    private int ttl = BlogParamConfig.ttl;
+    private TimeUnit timeUnit = BlogParamConfig.timeUnit;
+    private int carouselNum = BlogParamConfig.carouselNum;
 
     @Override
     public Map<String, Object> getMenu() {
@@ -86,7 +93,7 @@ public class HomeServiceImpl implements HomeService {
         res.put("data", data);
 
         System.out.println("menu-sql命中");
-        redis.opsForValue().set("menu", res);
+        redis.opsForValue().set("menu", res, 24, TimeUnit.HOURS);
         return res;
     }
 
@@ -109,7 +116,7 @@ public class HomeServiceImpl implements HomeService {
         res.put("data", data);
         System.out.println("ownerInfo-sql命中");
 
-        redis.opsForValue().set("ownerInfo", res);
+        redis.opsForValue().set("ownerInfo", res, 24, TimeUnit.HOURS);
         return res;
     }
 
@@ -200,7 +207,7 @@ public class HomeServiceImpl implements HomeService {
         res.put("code", 200);
         res.put("data", data);
         System.out.println("tag-sql命中");
-        redis.opsForValue().set("tag", res);
+        redis.opsForValue().set("tag", res, 4, TimeUnit.HOURS);
         return res;
     }
 
@@ -219,13 +226,8 @@ public class HomeServiceImpl implements HomeService {
         res.put("data",data);
 
         System.out.println("link-sql命中");
-        redis.opsForValue().set("link", res);
+        redis.opsForValue().set("link", res, 24, TimeUnit.HOURS);
         return res;
-    }
-
-    @Override
-    public Map<String, Object> getCarousel() {
-        return null;
     }
 
     private Map<String, Object> returnNullObjectMsg(String name){

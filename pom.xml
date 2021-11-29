@@ -58,6 +58,16 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.47</version>
         </dependency>
+
+        <!--pageHelper-->
+        <!--Springboot 2.6试了各种版本的ph 都显示会发生phConfig类的循环依赖错误-->
+        <!--测试这个版本是可以用的  最新版1.4.1-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper-spring-boot-starter</artifactId>
+            <version>1.4.1</version>
+        </dependency>
+
     </dependencies>
 
     <build>

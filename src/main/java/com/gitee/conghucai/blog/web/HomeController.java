@@ -1,6 +1,7 @@
 package com.gitee.conghucai.blog.web;
 
 import com.gitee.conghucai.blog.model.User;
+import com.gitee.conghucai.blog.service.ArticleService;
 import com.gitee.conghucai.blog.service.HomeService;
 import com.gitee.conghucai.blog.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,6 +16,8 @@ public class HomeController {
     HomeService homeService;
     @Resource
     UserService userService;
+    @Resource
+    ArticleService articleService;
 
     @GetMapping("/home/menu")
     public Object getMenu(){
@@ -45,6 +48,11 @@ public class HomeController {
     @GetMapping("/home/link")
     public Object getLink(){
         return homeService.getLink();
+    }
+
+    @GetMapping("/home/carousel")
+    public Object getCarousel(){
+        return articleService.getArticleCarousel();
     }
 
 }

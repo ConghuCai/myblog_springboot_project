@@ -17,6 +17,4 @@ public interface HomeService {
     Map<String, Object> getTag();
 
     Map<String, Object> getLink();
-
-    Map<String, Object> getCarousel();
 }
