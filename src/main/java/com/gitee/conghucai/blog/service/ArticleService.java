@@ -14,4 +14,9 @@ public interface ArticleService {
     Map<String, Object> getSearchArticleList(String keyword, Integer pageNum);
 
     Map<String, Object> getAboutArticleList(Integer pageNum);
+
+    Map<String, Object> getArticleInfo(String articleID);
+
+    Map<String, Object> articleOps(String target, String articleID);
+
 }

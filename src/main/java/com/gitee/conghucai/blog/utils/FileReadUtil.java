@@ -6,15 +6,27 @@ public class FileReadUtil {
     private FileReadUtil() {
     }
 
-    public static String markdownRead(File mdFile) throws IOException {
+    private static String markdownRead(File mdFile) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(mdFile), "UTF-8"));
 
         String line = null;
         String mdContent = "";
         while ((line = br.readLine()) != null) {
-            mdContent += line + "\r\n";
+            mdContent += line + System.lineSeparator();
         }
 
         return mdContent;
+    }
+
+    public static String readMDFile(String fileName){
+        String content = "";
+        File myMdFile = new File(fileName);
+        try{
+            content = markdownRead(myMdFile);
+        } catch (IOException e) {
+            content = "````" + e.getMessage() + "````";
+        }
+
+        return content;
     }
 }

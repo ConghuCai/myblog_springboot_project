@@ -38,5 +38,19 @@ public class ArticleController {
         return articleService.getAboutArticleList(page);
     }
 
+    @GetMapping("/article/content/{articleID}")
+    public Object getArticleContent(@PathVariable("articleID") String articleID){
+        return articleService.getArticleInfo(articleID);
+    }
+
+    @GetMapping("/article/like/{articleID}")
+    public Object articleLike(@PathVariable("articleID") String articleID){
+        return articleService.articleOps("like", articleID);
+    }
+
+    @GetMapping("/article/share/{articleID}")
+    public Object articleShare(@PathVariable("articleID") String articleID){
+        return articleService.articleOps("share", articleID);
+    }
 
 }

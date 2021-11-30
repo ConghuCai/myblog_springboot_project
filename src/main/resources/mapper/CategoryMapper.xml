@@ -151,4 +151,19 @@
     where menu = #{menuId}
     order by sort
   </select>
+
+  <resultMap id="categoryInfo" type="map">
+    <id column="name" jdbcType="VARCHAR" property="name" />
+    <result column="date" jdbcType="CHAR" property="time" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
+    <result column="count" jdbcType="INTEGER" property="count" />
+  </resultMap>
+  <select id="selectInfoByName" parameterType="java.lang.String" resultMap="categoryInfo">
+    select
+    name, date, avatar, intro, count
+    from t_category
+    where name = #{name}
+  </select>
+
 </mapper>

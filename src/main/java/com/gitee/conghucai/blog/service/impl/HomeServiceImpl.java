@@ -236,4 +236,23 @@ public class HomeServiceImpl implements HomeService {
         res.put("code", 500);
         return res;
     }
+
+    @Override
+    public Map<String, Object> getCategoryInfo(String categoryName) {
+        if(redis.hasKey("category_" + categoryName)){
+            System.out.println("category-redis命中");
+            return (Map<String, Object>) redis.opsForValue().get("category_" + categoryName);
+        }
+        Map categoryInfo = categoryMapper.selectInfoByName(categoryName);
+        Map<String, Object> data = new HashMap<>();
+        data.put("categoryInfo", categoryInfo);
+
+        Map<String, Object> res = new HashMap<>();
+        res.put("code",200);
+        res.put("data",data);
+
+        System.out.println("category-sql命中");
+        redis.opsForValue().set("category_" + categoryName, res, 24, TimeUnit.HOURS);
+        return res;
+    }
 }

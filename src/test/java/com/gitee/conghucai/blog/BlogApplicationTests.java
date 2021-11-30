@@ -11,6 +11,7 @@ import com.gitee.conghucai.blog.service.ArticleService;
 import com.gitee.conghucai.blog.service.HomeService;
 import com.gitee.conghucai.blog.service.UserService;
 import com.gitee.conghucai.blog.utils.DateTimeUtil;
+import com.gitee.conghucai.blog.utils.FileReadUtil;
 import com.gitee.conghucai.blog.utils.UUIDUtil;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Value;
@@ -18,6 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import javax.annotation.Resource;
+import java.io.File;
 import java.util.Map;
 
 @SpringBootTest
@@ -134,6 +136,20 @@ class BlogApplicationTests {
     void articleMapperTest(){
         Object res = articleMapper.selectBlogListByAbout(2);
         System.out.println(JSON.toJSONString(res));
+    }
+
+    private String mdBasePath = "F:\\markdown_base\\";
+    private int pageSize = BlogParamConfig.pageSize;
+    @Test
+    void fileReaderTest(){
+        System.out.println(pageSize);
+        String mdName = "53d15432772e4a39af1e21e71765b212.md";
+        String category = "java";
+
+        String name = mdBasePath + category + File.separator + mdName;
+        String mdContent = FileReadUtil.readMDFile(name);
+        System.out.println(name);
+        System.out.println(mdContent);
     }
 
 }

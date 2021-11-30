@@ -5,6 +5,7 @@ import com.gitee.conghucai.blog.service.ArticleService;
 import com.gitee.conghucai.blog.service.HomeService;
 import com.gitee.conghucai.blog.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -53,6 +54,11 @@ public class HomeController {
     @GetMapping("/home/carousel")
     public Object getCarousel(){
         return articleService.getArticleCarousel();
+    }
+
+    @GetMapping("/category/info/{categoryName}")
+    public Object getCategoryInfo(@PathVariable("categoryName") String categoryName) {
+        return homeService.getCategoryInfo(categoryName);
     }
 
 }

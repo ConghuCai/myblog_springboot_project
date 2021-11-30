@@ -282,4 +282,32 @@
     order by click_count desc
   </select>
 
+
+  <resultMap id="blogInfoMap" type="map">
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
+    <result column="time" jdbcType="CHAR" property="time" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="url_name" jdbcType="VARCHAR" property="url_name" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar_url" />
+    <result column="md" jdbcType="VARCHAR" property="md" />
+    <result column="click_count" jdbcType="INTEGER" property="clickCount" />
+    <result column="like_count" jdbcType="INTEGER" property="likeCount" />
+    <result column="comment_count" jdbcType="INTEGER" property="commentCount" />
+    <result column="share_count" jdbcType="INTEGER" property="shareCount" />
+  </resultMap>
+
+  <select id="selectBlogInfoByKeyword" parameterType="java.lang.String" resultMap="blogInfoMap">
+    select distinct
+    a.id, a.title, a.intro, a.time, c.label as type, c.name as url_name, a.author,
+    a.avatar, a.md,
+    a.click_count, a.like_count, a.comment_count, a.share_count
+    from t_article a
+    join t_category c
+    on a.type = c.name
+    where a.id = #{articleID}
+  </select>
+
 </mapper>

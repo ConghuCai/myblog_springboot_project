@@ -91,6 +91,24 @@
                 </configuration>
             </plugin>
         </plugins>
+
+        <!--防止拦截了elementUI的字体图标等资源的请求-->
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <excludes>
+                    <exclude>static/**/*.*</exclude>
+                </excludes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>false</filtering>
+                <includes>
+                    <include>static/**/*.*</include>
+                </includes>
+            </resource>
+        </resources>
     </build>
 
 </project>

@@ -4,6 +4,7 @@ import com.gitee.conghucai.blog.model.Category;
 import com.gitee.conghucai.blog.vo.CategoryListVo;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CategoryMapper {
     int deleteByPrimaryKey(String name);
@@ -19,4 +20,6 @@ public interface CategoryMapper {
     int updateByPrimaryKey(Category record);
 
     List<CategoryListVo> selectByMenuId(Integer menuId);
+
+    Map selectInfoByName(String name);
 }

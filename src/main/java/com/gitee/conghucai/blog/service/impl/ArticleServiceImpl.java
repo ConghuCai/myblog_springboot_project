@@ -3,7 +3,9 @@ package com.gitee.conghucai.blog.service.impl;
 import com.gitee.conghucai.blog.config.BlogParamConfig;
 import com.gitee.conghucai.blog.mapper.ArticleMapper;
 import com.gitee.conghucai.blog.mapper.RefArticleTagMapper;
+import com.gitee.conghucai.blog.model.Article;
 import com.gitee.conghucai.blog.service.ArticleService;
+import com.gitee.conghucai.blog.utils.FileReadUtil;
 import com.gitee.conghucai.blog.utils.TypeArrayUtils;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
@@ -11,6 +13,8 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.io.File;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +26,7 @@ public class ArticleServiceImpl implements ArticleService {
     private int pageSize = BlogParamConfig.pageSize;
     private int carouselNum = BlogParamConfig.carouselNum;
     private int aboutTagID = BlogParamConfig.aboutTagID;
+    private String mdBasePath = BlogParamConfig.markdown_base;
 
     @Resource
     RedisTemplate<Object, Object> redis;
@@ -121,4 +126,107 @@ public class ArticleServiceImpl implements ArticleService {
 
         return res;
     }
+
+    @Override
+    public Map<String, Object> getArticleInfo(String articleID) {
+        Map articlesInfo = articleMapper.selectBlogInfoByKeyword(articleID);
+        if(articlesInfo == null){
+            return returnNullObjectMsg("article");
+        }
+
+        List<String> tagList = refArticleTagMapper.selectByArticleID(articleID);
+        List<String> colorList = TypeArrayUtils.getTypeList(tagList);
+        articlesInfo.put("tags", tagList);
+        articlesInfo.put("tagType", colorList);
+
+        Integer clickCount = (Integer) articlesInfo.get("clickCount");
+
+        String mdName = (String) articlesInfo.get("md");
+        String category = (String) articlesInfo.get("url_name");
+
+        String mdContent = FileReadUtil.readMDFile(mdBasePath + category + File.separator + mdName);
+        articlesInfo.put("md", mdContent);
+
+        Map<String, Object> res = new HashMap<>();
+        Map<String, Object> data = new HashMap<>();
+
+        data.put("articlesInfo", articlesInfo);
+
+        System.out.println("article-sql命中");
+        res.put("data", data);
+        res.put("code", 200);
+
+        //更新表 添加一次点击量
+        Article article = new Article();
+        article.setId(articleID);
+        article.setClickCount(clickCount+1);
+        articleMapper.updateByPrimaryKeySelective(article);
+        return res;
+    }
+
+    private Map<String, Object> returnNullObjectMsg(String name){
+        Map<String, Object> res = new HashMap<>();
+        res.put("error", "get "+name +" error! get null result!");
+        res.put("code", 500);
+        return res;
+    }
+
+    @Override
+    public Map<String, Object> articleOps(String target, String articleID) {
+        Map<String, Object> res = new HashMap<>();
+        Map<String, Object> data = new HashMap<>();
+        Article article = articleMapper.selectByPrimaryKey(articleID);
+        if (article == null){
+            data.put("res", "failed. can't find article.");
+            res.put("data", data);
+            res.put("code", 500);
+            return res;
+        }
+
+        Integer count = null;
+        if(target.equals("like")){
+            count = article.getLikeCount();
+        } else if(target.equals("share")){
+            count = article.getShareCount();
+        }
+
+        if (count == null){
+            data.put("res", "failed. Count is null.");
+            res.put("data", data);
+            res.put("code", 500);
+            return res;
+        }
+
+        Article newArticle = new Article();
+        newArticle.setId(articleID);
+
+        if(target.equals("like")){
+            newArticle.setLikeCount(count + 1);
+        } else if(target.equals("share")){
+            newArticle.setShareCount(count + 1);
+        }
+
+        int updateRes = 0;
+        try {
+            updateRes = articleMapper.updateByPrimaryKeySelective(newArticle);
+        } catch (Exception e){
+            data.put("res", "failed. exception :" +e.getMessage());
+            res.put("data", data);
+            res.put("code", 500);
+            return res;
+        }
+
+        if(updateRes == 0){
+            data.put("res", "failed. nothing changed.");
+            res.put("data", data);
+            res.put("code", 500);
+            return res;
+        }
+
+        data.put("res", "success");
+        res.put("data", data);
+        res.put("code", 200);
+        return res;
+    }
+
 }
