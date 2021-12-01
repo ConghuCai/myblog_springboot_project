@@ -61,4 +61,8 @@ public class HomeController {
         return homeService.getCategoryInfo(categoryName);
     }
 
+    @GetMapping("/about/info")
+    public Object getAboutInfo(){
+        return homeService.getAboutInfo();
+    }
 }

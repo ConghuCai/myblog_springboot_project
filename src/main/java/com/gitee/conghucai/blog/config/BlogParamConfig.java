@@ -20,6 +20,13 @@ public class BlogParamConfig {
 
     public static int aboutTagID;
 
+    public static int commentPageSize;
+
+    @Value("${myblog.web.comment.pageSize}")
+    public void setCommentPageSize(int commentPageSize) {
+        BlogParamConfig.commentPageSize = commentPageSize;
+    }
+
     @Value("${myblog.mysql.aboutTagID}")
     public void setAboutTagID(int aboutTagID) {
         BlogParamConfig.aboutTagID = aboutTagID;

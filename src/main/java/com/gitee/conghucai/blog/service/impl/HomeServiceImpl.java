@@ -35,7 +35,7 @@ public class HomeServiceImpl implements HomeService {
     @Resource
     LinkMapper linkMapper;
     @Resource
-    ArticleMapper articleMapper;
+    AboutInfoMapper aboutInfoMapper;
 
     private int ttl = BlogParamConfig.ttl;
     private TimeUnit timeUnit = BlogParamConfig.timeUnit;
@@ -253,6 +253,26 @@ public class HomeServiceImpl implements HomeService {
 
         System.out.println("category-sql命中");
         redis.opsForValue().set("category_" + categoryName, res, 24, TimeUnit.HOURS);
+        return res;
+    }
+
+    @Override
+    public Map<String, Object> getAboutInfo() {
+        if(redis.hasKey("aboutInfo")){
+            System.out.println("aboutInfo-redis命中");
+            return (Map<String, Object>) redis.opsForValue().get("aboutInfo");
+        }
+
+        AboutInfo aboutInfo = aboutInfoMapper.selectByPrimaryKey("about");
+        Map<String, Object> data = new HashMap<>();
+        data.put("aboutInfo", aboutInfo);
+
+        Map<String, Object> res = new HashMap<>();
+        res.put("code",200);
+        res.put("data",data);
+
+        System.out.println("aboutInfo-sql命中");
+        redis.opsForValue().set("aboutInfo", res, 24, TimeUnit.HOURS);
         return res;
     }
 }

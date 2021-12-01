@@ -19,4 +19,6 @@ public interface HomeService {
     Map<String, Object> getLink();
 
     Map<String, Object> getCategoryInfo(String categoryName);
+
+    Map<String, Object> getAboutInfo();
 }

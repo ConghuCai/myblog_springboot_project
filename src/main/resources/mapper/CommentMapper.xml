@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.conghucai.blog.mapper.CommentMapper">
+  <resultMap id="BaseResultMap" type="com.gitee.conghucai.blog.model.Comment">
+    <id column="id" jdbcType="CHAR" property="id" />
+    <result column="user_login" jdbcType="VARCHAR" property="userLogin" />
+    <result column="article_id" jdbcType="CHAR" property="articleId" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="time" jdbcType="CHAR" property="time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_login, article_id, content, time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_comment
+    where id = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_comment
+    where id = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gitee.conghucai.blog.model.Comment">
+    insert into t_comment (id, user_login, article_id, 
+      content, time)
+    values (#{id,jdbcType=CHAR}, #{userLogin,jdbcType=VARCHAR}, #{articleId,jdbcType=CHAR}, 
+      #{content,jdbcType=VARCHAR}, #{time,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gitee.conghucai.blog.model.Comment">
+    insert into t_comment
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userLogin != null">
+        user_login,
+      </if>
+      <if test="articleId != null">
+        article_id,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="userLogin != null">
+        #{userLogin,jdbcType=VARCHAR},
+      </if>
+      <if test="articleId != null">
+        #{articleId,jdbcType=CHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gitee.conghucai.blog.model.Comment">
+    update t_comment
+    <set>
+      <if test="userLogin != null">
+        user_login = #{userLogin,jdbcType=VARCHAR},
+      </if>
+      <if test="articleId != null">
+        article_id = #{articleId,jdbcType=CHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gitee.conghucai.blog.model.Comment">
+    update t_comment
+    set user_login = #{userLogin,jdbcType=VARCHAR},
+      article_id = #{articleId,jdbcType=CHAR},
+      content = #{content,jdbcType=VARCHAR},
+      time = #{time,jdbcType=CHAR}
+    where id = #{id,jdbcType=CHAR}
+  </update>
+
+  <resultMap id="commentInfo" type="map">
+    <result column="name" jdbcType="VARCHAR" property="user" />
+    <result column="avatar_url" jdbcType="VARCHAR" property="avatar_url" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="time" jdbcType="CHAR" property="time" />
+  </resultMap>
+  <select id="selectInfoByArticleID" parameterType="java.lang.String" resultMap="commentInfo">
+    select
+    u.name, u.avatar_url, c.content, c.time
+    from t_comment c join t_user u on c.user_login = u.login
+    where article_id = #{articleID}
+    order by c.time desc
+  </select>
+</mapper>

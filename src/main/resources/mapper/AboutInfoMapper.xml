@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gitee.conghucai.blog.mapper.AboutInfoMapper">
+  <resultMap id="BaseResultMap" type="com.gitee.conghucai.blog.model.AboutInfo">
+    <id column="id" jdbcType="VARCHAR" property="id" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
+    <result column="url_gitee" jdbcType="VARCHAR" property="urlGitee" />
+    <result column="url_github" jdbcType="VARCHAR" property="urlGithub" />
+  </resultMap>
+  <sql id="Base_Column_List">
+      id, intro, url_gitee, url_github
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from t_about_info
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from t_about_info
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.gitee.conghucai.blog.model.AboutInfo">
+    insert into t_about_info (id, intro, url_gitee, 
+      url_github)
+    values (#{id,jdbcType=VARCHAR}, #{intro,jdbcType=VARCHAR}, #{urlGitee,jdbcType=VARCHAR}, 
+      #{urlGithub,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.gitee.conghucai.blog.model.AboutInfo">
+    insert into t_about_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="intro != null">
+        intro,
+      </if>
+      <if test="urlGitee != null">
+        url_gitee,
+      </if>
+      <if test="urlGithub != null">
+        url_github,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="intro != null">
+        #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="urlGitee != null">
+        #{urlGitee,jdbcType=VARCHAR},
+      </if>
+      <if test="urlGithub != null">
+        #{urlGithub,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gitee.conghucai.blog.model.AboutInfo">
+    update t_about_info
+    <set>
+      <if test="intro != null">
+        intro = #{intro,jdbcType=VARCHAR},
+      </if>
+      <if test="urlGitee != null">
+        url_gitee = #{urlGitee,jdbcType=VARCHAR},
+      </if>
+      <if test="urlGithub != null">
+        url_github = #{urlGithub,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gitee.conghucai.blog.model.AboutInfo">
+    update t_about_info
+    set intro = #{intro,jdbcType=VARCHAR},
+      url_gitee = #{urlGitee,jdbcType=VARCHAR},
+      url_github = #{urlGithub,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

@@ -17,7 +17,7 @@ public class AuthController {
     @Resource
     UserService userService;
 
-    @GetMapping("auth/gitee")
+    @GetMapping("/auth/gitee")
     public Object getOauthLogin(String url){
         return authService.getGithubAuthUrl(url);
     }
