@@ -6,9 +6,11 @@
     <result column="intro" jdbcType="VARCHAR" property="intro" />
     <result column="url_gitee" jdbcType="VARCHAR" property="urlGitee" />
     <result column="url_github" jdbcType="VARCHAR" property="urlGithub" />
+    <result column="intro_main" jdbcType="VARCHAR" property="introMain" />
+    <result column="url_main" jdbcType="VARCHAR" property="urlMain" />
   </resultMap>
   <sql id="Base_Column_List">
-      id, intro, url_gitee, url_github
+      id, intro, url_gitee, url_github, intro_main, url_main
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 

@@ -21,4 +21,8 @@ public interface HomeService {
     Map<String, Object> getCategoryInfo(String categoryName);
 
     Map<String, Object> getAboutInfo();
+
+    void helloService();
+
+    Map<String, Object> getGiteeLogo();
 }

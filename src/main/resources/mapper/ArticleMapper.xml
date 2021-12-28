@@ -211,6 +211,7 @@
   <resultMap id="blogListMap" type="map">
     <id column="id" jdbcType="CHAR" property="id" />
     <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="intro" jdbcType="VARCHAR" property="intro" />
     <result column="time" jdbcType="CHAR" property="time" />
     <result column="type" jdbcType="VARCHAR" property="type" />
     <result column="icon" jdbcType="VARCHAR" property="icon" />
@@ -280,6 +281,22 @@
         select article_id from t_ref_article_tag where id = #{aboutTagID}
     )
     order by click_count desc
+  </select>
+
+  <select id="selectBlogListByArticleTags" parameterType="java.lang.String" resultMap="blogListMap">
+    select
+    a.id, a.title, a.intro, a.time, c.label as type, a.icon,
+    a.click_count, a.like_count, a.comment_count, a.share_count
+    from t_article a join t_category c on a.type = c.name
+    where a.id in
+    (
+      select article_id from t_ref_article_tag
+      where article_id != #{articleID} and tag in
+      (
+        select tag from t_ref_article_tag
+        where article_id = #{articleID}
+      )
+    )
   </select>
 
 

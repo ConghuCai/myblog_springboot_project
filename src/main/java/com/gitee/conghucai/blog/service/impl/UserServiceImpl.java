@@ -41,10 +41,8 @@ public class UserServiceImpl implements UserService {
     // 这一部分存放在redis的用户map中
     public User getUserByLogin(String login) {
         if(redis.opsForHash().hasKey(keyName, login)){
-            System.out.println("getUser-redis命中");
             return (User) redis.opsForHash().get(keyName, login);
         }
-        System.out.println("getUser-sql命中");
         User user = userMapper.selectByPrimaryKey(login);
         if(user != null){
             redis.opsForHash().put(keyName, login, user);

@@ -1,0 +1,104 @@
+2021-12-21 14:28:55,457 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [StartupInfoLogger.java : 55] Starting BlogApplication using Java 1.8.0_202 on DESKTOP-U0EF4AU with PID 3632 (D:\Datas\Work\Project\myblog_springboot_project\target\classes started by THUNDEROBOT in D:\Datas\Work\SpringBoot\source_code\001-springboot-start)
+2021-12-21 14:28:55,477 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [SpringApplication.java : 639] The following profiles are active: dev
+2021-12-21 14:28:58,244 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-21 14:28:58,257 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-21 14:28:58,386 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 44 ms. Found 0 Redis repository interfaces.
+2021-12-21 14:28:59,747 [INFO ] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer
+                [TomcatWebServer.java : 108] Tomcat initialized with port(s): 31416 (http)
+2021-12-21 14:28:59,764 [INFO ] main org.apache.coyote.http11.Http11NioProtocol
+                [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-31416"]
+2021-12-21 14:28:59,764 [INFO ] main org.apache.catalina.core.StandardService
+                [DirectJDKLog.java : 173] Starting service [Tomcat]
+2021-12-21 14:28:59,764 [INFO ] main org.apache.catalina.core.StandardEngine
+                [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 14:28:59,766 [WARN ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-21 14:28:59,766 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2021-12-21 14:28:59,766 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-12-21 14:28:59,766 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2021-12-21 14:28:59,766 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-21 14:28:59,839 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-12-21 14:28:59,991 [INFO ] main o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/]
+                [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2021-12-21 14:28:59,993 [INFO ] main o.s.b.web.servlet.context.ServletWebServerApplicationContext
+                [ServletWebServerApplicationContext.java : 290] Root WebApplicationContext: initialization completed in 4149 ms
+2021-12-21 14:29:01,646 [INFO ] main o.s.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping
+                [WelcomePageHandlerMapping.java : 53] Adding welcome page: class path resource [static/index.html]
+2021-12-21 14:29:01,973 [INFO ] main org.apache.coyote.http11.Http11NioProtocol
+                [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-31416"]
+2021-12-21 14:29:02,003 [INFO ] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer
+                [TomcatWebServer.java : 220] Tomcat started on port(s): 31416 (http) with context path ''
+2021-12-21 14:29:02,018 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [StartupInfoLogger.java : 61] Started BlogApplication in 9.458 seconds (JVM running for 11.982)
+2021-12-21 14:29:17,873 [INFO ] http-nio-31416-exec-1 o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/]
+                [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-21 14:29:17,874 [INFO ] http-nio-31416-exec-1 org.springframework.web.servlet.DispatcherServlet
+                [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2021-12-21 14:29:17,875 [INFO ] http-nio-31416-exec-1 org.springframework.web.servlet.DispatcherServlet
+                [FrameworkServlet.java : 547] Completed initialization in 1 ms
+2021-12-21 14:29:19,277 [INFO ] http-nio-31416-exec-1 com.zaxxer.hikari.HikariDataSource
+                [HikariDataSource.java : 110] HikariPool-1 - Starting...
+2021-12-21 14:29:19,681 [INFO ] http-nio-31416-exec-1 com.zaxxer.hikari.HikariDataSource
+                [HikariDataSource.java : 123] HikariPool-1 - Start completed.
+2021-12-21 14:34:14,655 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [StartupInfoLogger.java : 55] Starting BlogApplication using Java 1.8.0_202 on DESKTOP-U0EF4AU with PID 13616 (D:\Datas\Work\Project\myblog_springboot_project\target\classes started by THUNDEROBOT in D:\Datas\Work\SpringBoot\source_code\001-springboot-start)
+2021-12-21 14:34:14,665 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [SpringApplication.java : 639] The following profiles are active: dev
+2021-12-21 14:34:17,447 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-21 14:34:17,457 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-21 14:34:17,554 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 36 ms. Found 0 Redis repository interfaces.
+2021-12-21 14:34:18,548 [INFO ] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer
+                [TomcatWebServer.java : 108] Tomcat initialized with port(s): 31416 (http)
+2021-12-21 14:34:18,559 [INFO ] main org.apache.coyote.http11.Http11NioProtocol
+                [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-31416"]
+2021-12-21 14:34:18,561 [INFO ] main org.apache.catalina.core.StandardService
+                [DirectJDKLog.java : 173] Starting service [Tomcat]
+2021-12-21 14:34:18,562 [INFO ] main org.apache.catalina.core.StandardEngine
+                [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-21 14:34:18,565 [WARN ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-21 14:34:18,565 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2021-12-21 14:34:18,565 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-12-21 14:34:18,565 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2021-12-21 14:34:18,566 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-21 14:34:18,568 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-12-21 14:34:18,710 [INFO ] main o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/]
+                [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2021-12-21 14:34:18,711 [INFO ] main o.s.b.web.servlet.context.ServletWebServerApplicationContext
+                [ServletWebServerApplicationContext.java : 290] Root WebApplicationContext: initialization completed in 3905 ms
+2021-12-21 14:34:19,958 [INFO ] main o.s.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping
+                [WelcomePageHandlerMapping.java : 53] Adding welcome page: class path resource [static/index.html]
+2021-12-21 14:34:20,188 [INFO ] main org.apache.coyote.http11.Http11NioProtocol
+                [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-31416"]
+2021-12-21 14:34:20,200 [INFO ] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer
+                [TomcatWebServer.java : 220] Tomcat started on port(s): 31416 (http) with context path ''
+2021-12-21 14:34:20,212 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [StartupInfoLogger.java : 61] Started BlogApplication in 6.975 seconds (JVM running for 9.025)
+2021-12-21 14:34:30,228 [INFO ] http-nio-31416-exec-3 o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/]
+                [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-21 14:34:30,229 [INFO ] http-nio-31416-exec-3 org.springframework.web.servlet.DispatcherServlet
+                [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2021-12-21 14:34:30,229 [INFO ] http-nio-31416-exec-3 org.springframework.web.servlet.DispatcherServlet
+                [FrameworkServlet.java : 547] Completed initialization in 0 ms
+2021-12-21 14:34:30,680 [INFO ] http-nio-31416-exec-5 com.zaxxer.hikari.HikariDataSource
+                [HikariDataSource.java : 110] HikariPool-1 - Starting...
+2021-12-21 14:34:31,172 [INFO ] http-nio-31416-exec-5 com.zaxxer.hikari.HikariDataSource
+                [HikariDataSource.java : 123] HikariPool-1 - Start completed.

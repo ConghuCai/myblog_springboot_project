@@ -68,6 +68,13 @@
             <version>1.4.1</version>
         </dependency>
 
+        <!--自动化日志打印-->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.22</version>
+        </dependency>
+
     </dependencies>
 
     <build>

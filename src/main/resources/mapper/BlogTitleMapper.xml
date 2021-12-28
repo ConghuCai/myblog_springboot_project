@@ -79,4 +79,12 @@
       blogAvatar = #{blogavatar,jdbcType=VARCHAR}
     where id = #{id,jdbcType=VARCHAR}
   </update>
+
+  <select id="selectGiteeLogoByPrimaryKey" parameterType="java.lang.String" resultType="java.lang.String">
+    select
+    giteeLogo
+    from t_blog_title
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+
 </mapper>

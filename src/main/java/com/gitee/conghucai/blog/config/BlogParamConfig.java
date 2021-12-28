@@ -22,6 +22,13 @@ public class BlogParamConfig {
 
     public static int commentPageSize;
 
+    public static String siteAccessName;
+
+    @Value("${myblog.site.access.name}")
+    public void setSiteAccessName(String siteAccessName) {
+        BlogParamConfig.siteAccessName = siteAccessName;
+    }
+
     @Value("${myblog.web.comment.pageSize}")
     public void setCommentPageSize(int commentPageSize) {
         BlogParamConfig.commentPageSize = commentPageSize;

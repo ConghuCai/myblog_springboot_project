@@ -32,4 +32,6 @@ public interface ArticleMapper {
     List<Map> selectBlogListByAbout(Integer aboutTagID);
 
     Map selectBlogInfoByKeyword(String articleID);
+
+    List<Map> selectBlogListByArticleTags(String articleID);
 }

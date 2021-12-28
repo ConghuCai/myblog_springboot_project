@@ -18,4 +18,8 @@ public interface ArticleService {
     Map<String, Object> getArticleInfo(String articleID);
 
     Map<String, Object> articleOps(String target, String articleID);
+
+    Map<String, Object> getRecommendArticleList(String articleID, Integer pageNum);
+
+
 }

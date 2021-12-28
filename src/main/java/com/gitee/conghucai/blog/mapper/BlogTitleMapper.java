@@ -14,4 +14,6 @@ public interface BlogTitleMapper {
     int updateByPrimaryKeySelective(BlogTitle record);
 
     int updateByPrimaryKey(BlogTitle record);
+
+    String selectGiteeLogoByPrimaryKey(String id);
 }

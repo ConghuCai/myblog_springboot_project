@@ -40,11 +40,11 @@ public class HomeServiceImpl implements HomeService {
     private int ttl = BlogParamConfig.ttl;
     private TimeUnit timeUnit = BlogParamConfig.timeUnit;
     private int carouselNum = BlogParamConfig.carouselNum;
+    private String redisStatName = BlogParamConfig.siteAccessName;
 
     @Override
     public Map<String, Object> getMenu() {
         if(redis.hasKey("menu")){
-            System.out.println("menu-Redis命中");
             return (Map<String, Object>) redis.opsForValue().get("menu");
         }
 
@@ -92,7 +92,6 @@ public class HomeServiceImpl implements HomeService {
         res.put("code", 200);
         res.put("data", data);
 
-        System.out.println("menu-sql命中");
         redis.opsForValue().set("menu", res, 24, TimeUnit.HOURS);
         return res;
     }
@@ -100,7 +99,6 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public Map<String, Object> getOwnerInfo() {
         if(redis.hasKey("ownerInfo")){
-            System.out.println("ownerInfo-redis命中");
             return (Map<String, Object>) redis.opsForValue().get("ownerInfo");
         }
 
@@ -114,7 +112,6 @@ public class HomeServiceImpl implements HomeService {
         Map<String, Object> res = new HashMap<>();
         res.put("code", 200);
         res.put("data", data);
-        System.out.println("ownerInfo-sql命中");
 
         redis.opsForValue().set("ownerInfo", res, 24, TimeUnit.HOURS);
         return res;
@@ -176,7 +173,6 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public Map<String, Object> getTag() {
         if(redis.hasKey("tag")){
-            System.out.println("tag-redis命中");
             return (Map<String, Object>) redis.opsForValue().get("tag");
         }
         List<Tag> tagList = tagMapper.selectAll();
@@ -206,7 +202,6 @@ public class HomeServiceImpl implements HomeService {
         Map<String, Object> res = new HashMap<>();
         res.put("code", 200);
         res.put("data", data);
-        System.out.println("tag-sql命中");
         redis.opsForValue().set("tag", res, 4, TimeUnit.HOURS);
         return res;
     }
@@ -214,7 +209,6 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public Map<String, Object> getLink() {
         if(redis.hasKey("link")){
-            System.out.println("link-redis命中");
             return (Map<String, Object>) redis.opsForValue().get("link");
         }
         List<Link> links = linkMapper.selectAll();
@@ -225,7 +219,6 @@ public class HomeServiceImpl implements HomeService {
         res.put("code",200);
         res.put("data",data);
 
-        System.out.println("link-sql命中");
         redis.opsForValue().set("link", res, 24, TimeUnit.HOURS);
         return res;
     }
@@ -240,7 +233,6 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public Map<String, Object> getCategoryInfo(String categoryName) {
         if(redis.hasKey("category_" + categoryName)){
-            System.out.println("category-redis命中");
             return (Map<String, Object>) redis.opsForValue().get("category_" + categoryName);
         }
         Map categoryInfo = categoryMapper.selectInfoByName(categoryName);
@@ -251,7 +243,6 @@ public class HomeServiceImpl implements HomeService {
         res.put("code",200);
         res.put("data",data);
 
-        System.out.println("category-sql命中");
         redis.opsForValue().set("category_" + categoryName, res, 24, TimeUnit.HOURS);
         return res;
     }
@@ -259,7 +250,6 @@ public class HomeServiceImpl implements HomeService {
     @Override
     public Map<String, Object> getAboutInfo() {
         if(redis.hasKey("aboutInfo")){
-            System.out.println("aboutInfo-redis命中");
             return (Map<String, Object>) redis.opsForValue().get("aboutInfo");
         }
 
@@ -271,8 +261,50 @@ public class HomeServiceImpl implements HomeService {
         res.put("code",200);
         res.put("data",data);
 
-        System.out.println("aboutInfo-sql命中");
         redis.opsForValue().set("aboutInfo", res, 24, TimeUnit.HOURS);
+        return res;
+    }
+
+    @Override
+    public void helloService() {
+        // count
+        if(!redis.opsForHash().hasKey(redisStatName, "count")){
+            Set<Object> set = redis.opsForHash().keys(redisStatName);
+            int count = 0;
+            Iterator<Object> iterator = set.iterator();
+            while(iterator.hasNext()) {
+                String num = (String) redis.opsForHash().get(redisStatName, iterator.next() + "");
+                count += Integer.parseInt(num);
+            }
+
+            redis.opsForHash().put(redisStatName, "count", count+"");
+        }
+
+        // date
+        String date = DateTimeUtil.getSysDate();
+        if(!redis.opsForHash().hasKey(redisStatName, date)) {
+            redis.opsForHash().put(redisStatName, date, "0");
+        }
+
+        String num = (String) redis.opsForHash().get(redisStatName, date);
+        String countNum = (String) redis.opsForHash().get(redisStatName, "count");
+        int newNum = Integer.parseInt(num) + 1;
+        int count = Integer.parseInt(countNum) + 1;
+        redis.opsForHash().put(redisStatName, date, newNum + "");
+        redis.opsForHash().put(redisStatName, "count", count + "");
+    }
+
+    @Override
+    public Map<String, Object> getGiteeLogo() {
+        if(redis.hasKey("giteeLogo")){
+            return (Map<String, Object>) redis.opsForValue().get("giteeLogo");
+        }
+
+        String url = blogTitleMapper.selectGiteeLogoByPrimaryKey("blog");
+        Map<String, Object> res = new HashMap<>();
+        res.put("code",200);
+        res.put("data",url);
+        redis.opsForValue().set("giteeLogo", res);
         return res;
     }
 }

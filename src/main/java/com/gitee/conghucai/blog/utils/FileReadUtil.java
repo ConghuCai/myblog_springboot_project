@@ -24,7 +24,7 @@ public class FileReadUtil {
         try{
             content = markdownRead(myMdFile);
         } catch (IOException e) {
-            content = "````" + e.getMessage() + "````";
+            content = "````文件未找到...请联系站点管理员````";
         }
 
         return content;

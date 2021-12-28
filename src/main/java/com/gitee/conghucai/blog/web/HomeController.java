@@ -4,6 +4,7 @@ import com.gitee.conghucai.blog.model.User;
 import com.gitee.conghucai.blog.service.ArticleService;
 import com.gitee.conghucai.blog.service.HomeService;
 import com.gitee.conghucai.blog.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,16 @@ public class HomeController {
     UserService userService;
     @Resource
     ArticleService articleService;
+
+    @GetMapping("/home/hello")
+    public void helloBlog() {
+        homeService.helloService();
+    }
+
+    @GetMapping("/home/gitee")
+    public Object getGiteeLogo(){
+        return homeService.getGiteeLogo();
+    }
 
     @GetMapping("/home/menu")
     public Object getMenu(){

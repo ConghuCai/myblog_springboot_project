@@ -11,6 +11,26 @@ public class AboutInfo implements Serializable {
 
     private String urlGithub;
 
+    private String introMain;
+
+    public String getIntroMain() {
+        return introMain;
+    }
+
+    public void setIntroMain(String introMain) {
+        this.introMain = introMain;
+    }
+
+    public String getUrlMain() {
+        return urlMain;
+    }
+
+    public void setUrlMain(String urlMain) {
+        this.urlMain = urlMain;
+    }
+
+    private String urlMain;
+
     public String getId() {
         return id;
     }

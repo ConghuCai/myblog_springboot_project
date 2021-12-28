@@ -1,0 +1,92 @@
+2021-12-06 09:24:40,984 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [StartupInfoLogger.java : 55] Starting BlogApplication using Java 1.8.0_202 on DESKTOP-U0EF4AU with PID 12888 (D:\Datas\Work\Project\myblog_springboot_project\target\classes started by THUNDEROBOT in D:\Datas\Work\Springboot\source_code\001-springboot-start)
+2021-12-06 09:24:40,989 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [SpringApplication.java : 639] The following profiles are active: dev
+2021-12-06 09:24:42,343 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-06 09:24:42,346 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-06 09:24:42,387 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+2021-12-06 09:24:42,942 [INFO ] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer
+                [TomcatWebServer.java : 108] Tomcat initialized with port(s): 31416 (http)
+2021-12-06 09:24:42,950 [INFO ] main org.apache.coyote.http11.Http11NioProtocol
+                [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-31416"]
+2021-12-06 09:24:42,951 [INFO ] main org.apache.catalina.core.StandardService
+                [DirectJDKLog.java : 173] Starting service [Tomcat]
+2021-12-06 09:24:42,951 [INFO ] main org.apache.catalina.core.StandardEngine
+                [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-06 09:24:42,952 [WARN ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-06 09:24:42,952 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2021-12-06 09:24:42,953 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-12-06 09:24:42,953 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2021-12-06 09:24:42,953 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-06 09:24:43,008 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-12-06 09:24:43,132 [INFO ] main o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/]
+                [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2021-12-06 09:24:43,133 [INFO ] main o.s.b.web.servlet.context.ServletWebServerApplicationContext
+                [ServletWebServerApplicationContext.java : 290] Root WebApplicationContext: initialization completed in 2074 ms
+2021-12-06 09:24:44,194 [INFO ] main o.s.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping
+                [WelcomePageHandlerMapping.java : 53] Adding welcome page: class path resource [static/index.html]
+2021-12-06 09:24:44,369 [INFO ] main org.apache.coyote.http11.Http11NioProtocol
+                [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-31416"]
+2021-12-06 09:24:44,383 [INFO ] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer
+                [TomcatWebServer.java : 220] Tomcat started on port(s): 31416 (http) with context path ''
+2021-12-06 09:24:44,390 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [StartupInfoLogger.java : 61] Started BlogApplication in 4.049 seconds (JVM running for 5.361)
+2021-12-06 09:25:18,321 [INFO ] http-nio-31416-exec-1 o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/]
+                [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-06 09:25:18,322 [INFO ] http-nio-31416-exec-1 org.springframework.web.servlet.DispatcherServlet
+                [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2021-12-06 09:25:18,323 [INFO ] http-nio-31416-exec-1 org.springframework.web.servlet.DispatcherServlet
+                [FrameworkServlet.java : 547] Completed initialization in 1 ms
+2021-12-06 09:25:19,219 [INFO ] http-nio-31416-exec-1 com.zaxxer.hikari.HikariDataSource
+                [HikariDataSource.java : 110] HikariPool-1 - Starting...
+2021-12-06 09:25:19,506 [INFO ] http-nio-31416-exec-1 com.zaxxer.hikari.HikariDataSource
+                [HikariDataSource.java : 123] HikariPool-1 - Start completed.
+2021-12-06 09:49:44,493 [WARN ] http-nio-31416-exec-6 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@511e5d33 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 09:49:44,500 [WARN ] http-nio-31416-exec-5 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@da3c0a1 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 09:49:44,515 [WARN ] http-nio-31416-exec-7 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@de886f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 09:49:44,592 [WARN ] http-nio-31416-exec-8 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@63e18960 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 09:49:44,623 [WARN ] http-nio-31416-exec-4 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@7367224d (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 09:49:44,654 [WARN ] http-nio-31416-exec-9 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1cb2350b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 09:49:49,494 [WARN ] http-nio-31416-exec-6 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@18b6d823 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 09:49:49,509 [WARN ] http-nio-31416-exec-5 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@99c45cd (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 09:49:49,524 [WARN ] http-nio-31416-exec-7 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@4e11cac (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 09:49:49,602 [WARN ] http-nio-31416-exec-8 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@67de01c4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 10:13:44,393 [WARN ] http-nio-31416-exec-2 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@5e6bd114 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 10:13:44,393 [WARN ] http-nio-31416-exec-3 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2d652805 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 10:13:46,425 [WARN ] http-nio-31416-exec-4 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@28dc4dce (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 10:13:46,425 [WARN ] http-nio-31416-exec-5 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@23f44fa1 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 10:13:49,408 [WARN ] http-nio-31416-exec-3 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@33eb6ff3 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 10:13:49,408 [WARN ] http-nio-31416-exec-2 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1657197b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 10:13:51,434 [WARN ] http-nio-31416-exec-4 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1245b2ad (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 10:13:51,433 [WARN ] http-nio-31416-exec-5 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1439d37b (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 10:13:54,427 [WARN ] http-nio-31416-exec-3 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@45f180ee (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+2021-12-06 10:13:54,427 [WARN ] http-nio-31416-exec-2 com.zaxxer.hikari.pool.PoolBase
+                [PoolBase.java : 184] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@e15e033 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.

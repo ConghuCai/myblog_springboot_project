@@ -64,7 +64,6 @@ public class OauthServiceImpl implements OauthService {
             res.put("code", 500);
             return res;
         }
-        System.out.println("gitee用户-" + loginInfo.get("login") + "-已完成授权");
 
         //将用户信息注册到数据库中
         User user = new User();

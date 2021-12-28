@@ -1,0 +1,66 @@
+2021-12-01 16:19:46,043 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [StartupInfoLogger.java : 55] Starting BlogApplication using Java 1.8.0_202 on DESKTOP-U0EF4AU with PID 7776 (D:\Datas\Work\Project\myblog_springboot_project\target\classes started by THUNDEROBOT in D:\Datas\Work\Springboot\source_code\001-springboot-start)
+2021-12-01 16:19:46,059 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [SpringApplication.java : 639] The following profiles are active: dev
+2021-12-01 16:19:46,684 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-01 16:19:46,684 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-01 16:19:46,699 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2021-12-01 16:19:47,027 [INFO ] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer
+                [TomcatWebServer.java : 108] Tomcat initialized with port(s): 31416 (http)
+2021-12-01 16:19:47,043 [INFO ] main org.apache.coyote.http11.Http11NioProtocol
+                [DirectJDKLog.java : 173] Initializing ProtocolHandler ["http-nio-31416"]
+2021-12-01 16:19:47,043 [INFO ] main org.apache.catalina.core.StandardService
+                [DirectJDKLog.java : 173] Starting service [Tomcat]
+2021-12-01 16:19:47,043 [INFO ] main org.apache.catalina.core.StandardEngine
+                [DirectJDKLog.java : 173] Starting Servlet engine: [Apache Tomcat/9.0.55]
+2021-12-01 16:19:47,043 [WARN ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] This listener must only be nested within Server elements, but is in [TomcatEmbeddedContext].
+2021-12-01 16:19:47,043 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] An older version [1.2.23] of the Apache Tomcat Native library is installed, while Tomcat recommends a minimum version of [1.2.30]
+2021-12-01 16:19:47,043 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] Loaded Apache Tomcat Native library [1.2.23] using APR version [1.7.0].
+2021-12-01 16:19:47,043 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] APR capabilities: IPv6 [true], sendfile [true], accept filters [false], random [true], UDS [false].
+2021-12-01 16:19:47,043 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] APR/OpenSSL configuration: useAprConnector [false], useOpenSSL [true]
+2021-12-01 16:19:47,043 [INFO ] main org.apache.catalina.core.AprLifecycleListener
+                [DirectJDKLog.java : 173] OpenSSL successfully initialized [OpenSSL 1.1.1c  28 May 2019]
+2021-12-01 16:19:47,109 [INFO ] main o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/]
+                [DirectJDKLog.java : 173] Initializing Spring embedded WebApplicationContext
+2021-12-01 16:19:47,110 [INFO ] main o.s.b.web.servlet.context.ServletWebServerApplicationContext
+                [ServletWebServerApplicationContext.java : 290] Root WebApplicationContext: initialization completed in 1004 ms
+2021-12-01 16:19:47,692 [INFO ] main o.s.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping
+                [WelcomePageHandlerMapping.java : 53] Adding welcome page: class path resource [static/index.html]
+2021-12-01 16:19:47,842 [INFO ] main org.apache.coyote.http11.Http11NioProtocol
+                [DirectJDKLog.java : 173] Starting ProtocolHandler ["http-nio-31416"]
+2021-12-01 16:19:47,858 [INFO ] main org.springframework.boot.web.embedded.tomcat.TomcatWebServer
+                [TomcatWebServer.java : 220] Tomcat started on port(s): 31416 (http) with context path ''
+2021-12-01 16:19:47,858 [INFO ] main com.gitee.conghucai.blog.BlogApplication
+                [StartupInfoLogger.java : 61] Started BlogApplication in 2.198 seconds (JVM running for 2.815)
+2021-12-01 16:19:52,797 [INFO ] http-nio-31416-exec-1 o.a.catalina.core.ContainerBase.[Tomcat].[localhost].[/]
+                [DirectJDKLog.java : 173] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2021-12-01 16:19:52,797 [INFO ] http-nio-31416-exec-1 org.springframework.web.servlet.DispatcherServlet
+                [FrameworkServlet.java : 525] Initializing Servlet 'dispatcherServlet'
+2021-12-01 16:19:52,798 [INFO ] http-nio-31416-exec-1 org.springframework.web.servlet.DispatcherServlet
+                [FrameworkServlet.java : 547] Completed initialization in 1 ms
+2021-12-01 16:19:53,088 [INFO ] http-nio-31416-exec-4 com.zaxxer.hikari.HikariDataSource
+                [HikariDataSource.java : 110] HikariPool-1 - Starting...
+2021-12-01 16:19:53,372 [INFO ] http-nio-31416-exec-4 com.zaxxer.hikari.HikariDataSource
+                [HikariDataSource.java : 123] HikariPool-1 - Start completed.
+2021-12-01 16:20:18,989 [INFO ] main com.gitee.conghucai.blog.BlogApplicationTests
+                [StartupInfoLogger.java : 55] Starting BlogApplicationTests using Java 1.8.0_202 on DESKTOP-U0EF4AU with PID 3784 (started by THUNDEROBOT in D:\Datas\Work\Project\myblog_springboot_project)
+2021-12-01 16:20:18,989 [INFO ] main com.gitee.conghucai.blog.BlogApplicationTests
+                [SpringApplication.java : 639] The following profiles are active: dev
+2021-12-01 16:20:19,527 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 262] Multiple Spring Data modules found, entering strict repository configuration mode!
+2021-12-01 16:20:19,543 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 132] Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2021-12-01 16:20:19,558 [INFO ] main o.s.data.repository.config.RepositoryConfigurationDelegate
+                [RepositoryConfigurationDelegate.java : 201] Finished Spring Data repository scanning in 10 ms. Found 0 Redis repository interfaces.
+2021-12-01 16:20:21,195 [INFO ] main o.s.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping
+                [WelcomePageHandlerMapping.java : 53] Adding welcome page: class path resource [static/index.html]
+2021-12-01 16:20:21,578 [INFO ] main com.gitee.conghucai.blog.BlogApplicationTests
+                [StartupInfoLogger.java : 61] Started BlogApplicationTests in 2.877 seconds (JVM running for 3.673)
